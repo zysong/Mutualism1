@@ -1,0 +1,130 @@
+
+kill(all)$
+
+ratprint:false$
+
+rp:1$
+rs:0.01$
+ra:1$
+ma:.0005$
+mp:.0005$
+pk:2$
+slist:[2,3,4]$
+B0:.01$
+D:.5$
+
+Bmat:makelist(makelist(i/50,i,0,49),j,0,49)$
+
+cmat:makelist(makelist(j/50,i,0,49),j,0,49)$
+
+Blist:flatten(Bmat)$
+
+clist:flatten(cmat)$
+
+PAeqm:makelist(0, i, 1, length(slist))$
+
+ParetoSet:makelist(0, i, 1, length(slist))$
+
+K(H):= 10^pk*H^(s*pk)$
+
+Heq:ra*(1-c)^2*H^2*(B+K(H)*c*B*D)*mp-ma*(1-H)*(1-B)*(rp*(1-H)+rs)$
+
+HofBc(x,y):=find_root(ev(Heq, B=x, c=y),H,0,1)$
+
+Psol(B,H):=(1-B)*(rp*(1-H)+rs)/mp$
+
+Asol(c,P,H):=(1/H-1)*P/(1-c)$
+
+dupdB(B,c,H):=-rs+rp*(1-H)*(K(H)*c*(1+K(H)*c*D/2)*(1-B)-1)$
+
+duadc(B,c,H):=ra*H*B*(K(H)*D*(1-2*c)-1)$
+
+
+for i:1 while i<=length(slist) do(
+
+  s:slist[i],
+
+  Hlist:map(HofBc,Blist,clist),
+
+  Plist:map(Psol, Blist, Hlist),
+
+  Alist:map(Asol, clist, Plist, Hlist),
+
+  Eqm1:sort(solve([Heq, dupdB(B,c,H), duadc(B,c,H)],[B,c,H]))[4],
+
+  Eqm1:ev([B,c,H],Eqm1),
+
+  Eqm2:sort(solve(ev([Heq, duadc(B,c,H)],B=B0),[c,H]))[1],
+
+  Eqm2:ev([B,c,H],Eqm2,B=B0),
+
+  Eqm3:[B0, 0, HofBc(B0,0)],
+
+  if (Eqm1[1]>B0 and Eqm1[1]<1 and Eqm1[2]>0 and Eqm1[2]<1 and Eqm1[3]>0 and Eqm1[3]<1) then (Eqm:Eqm1)
+  elseif (Eqm2[1]>0 and Eqm2[1]<1 and Eqm2[2]>0 and Eqm2[2]<1) then (Eqm:Eqm2)
+  else (Eqm:Eqm3),
+
+  Beqm:Eqm[1],
+
+  ceqm:Eqm[2],
+
+  Heqm:Eqm[3],
+
+  Peqm:Psol(Beqm, Heqm),
+
+  Aeqm:Asol(ceqm, Peqm, Heqm),
+
+  PAeqm[i]:[Peqm, Aeqm],
+  
+  PAlist:makelist([Plist[i],Alist[i]],i,1,length(Plist)),
+
+  order1(a,b):= a[1] > b[1],
+
+  PAlist_Porder:sort(PAlist, order1),
+
+  ParetoList:[PAlist_Porder[1]],
+
+  for j:2 while j <= length(PAlist) do
+    (if PAlist_Porder[j][2]>last(ParetoList)[2] then ParetoList:append(ParetoList, [PAlist_Porder[j]])),
+  
+  ParetoSet[i]:ParetoList
+  )$
+
+    
+load(draw)$    
+
+draw2d(
+file_name= "Pareto-s-black",
+terminal=eps,
+yrange=[1,1200],
+
+/* equilibria */
+point_type=7,
+point_size=3,
+points_joined=false,
+color=gray,
+points([PAeqm[1]]),
+color="dark-gray",
+points([PAeqm[2]]),
+color=black,
+points([PAeqm[3]]),
+
+/* Pareto fronts */
+point_type=0,
+point_size=1,
+points_joined=true,
+xlabel="Plant population",
+ylabel="Animal population",
+/*D1*/
+key="s=2",
+color=gray,
+points(ParetoSet[1]),
+/*D2*/
+key="  3",
+color="dark-gray",
+points(ParetoSet[2]),
+/*D3*/
+key="  4",
+color=black,
+points(ParetoSet[3])
+)$

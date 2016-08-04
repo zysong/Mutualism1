@@ -1,0 +1,169 @@
+/* Maxima batch file */
+kill(all)$
+
+ratprint:false$
+
+k:10^pk$
+
+K:k*H^(s*pk)$
+
+Heq:ra*(1-c)^2*H^2*(B+K*c*B*D)*mp-ma*(1-H)*(1-B)*(rp*(1-H)+rs)$
+
+dupdB:-rs+rp*(1-H)*(K*c*(1+K*c*D/2)*(1-B)-1)$
+
+duadc:ra*H*B*(K*D*(1-2*c)-1)$
+
+Psol(B,H):=(1-B)*(rp*(1-H)+rs)/mp$
+
+Asol(c,P,H):=(1/H-1)*P/(1-c)$
+
+HofBc(x,y):=find_root(ev(Heq, B=x, c=y),H,0,1)$
+
+/* the initial parameters*/
+rp:1$
+rs:0.01$
+ra:1$
+ma:.0005$
+mp:.0005$
+pk1:1$
+pk2:2$
+s:2$
+ns:25$
+B0:.01$
+Dlist:makelist(i/50+.001, i, 1, ns)$
+
+SolveEqm(D):=block(
+  Eqm1:sort(solve([Heq, dupdB, duadc],[B,c,H]))[4],
+  Eqm1:ev([B,c,H],Eqm1),
+  Eqm2:sort(solve(ev([Heq, duadc],B=B0),[c,H]))[1],
+  Eqm2:ev([B,c,H],Eqm2,B=B0),
+  Eqm3:[B0, 0, HofBc(B0,0)],
+  
+  if (Eqm1[1]>B0 and Eqm1[1]<1 and Eqm1[2]>0 and Eqm1[2]<1 and Eqm1[3]>0 and Eqm1[3]<1) then (Eqm:Eqm1)
+  elseif (Eqm2[1]>0 and Eqm2[1]<1 and Eqm2[2]>0 and Eqm2[2]<1) then (Eqm:Eqm2)
+  else (Eqm:Eqm3),
+  
+  return(Eqm)
+  )$
+
+pk:pk1$
+
+k:10^pk$
+
+eqlist1:map(SolveEqm, Dlist)$
+
+[Blist1, clist1, Hlist1]: makelist(makelist(eqlist1[i][j],i,1,ns),j,1,3)$
+
+Klist1:k*Hlist1^s$
+
+Plist1:map(Psol, Blist1, Hlist1)$
+
+Alist1:map(Asol, clist1, Plist1, Hlist1)$
+
+pk:pk2$
+
+k:10^pk$
+
+eqlist2:map(SolveEqm, Dlist)$
+
+[Blist2, clist2, Hlist2]: makelist(makelist(eqlist2[i][j],i,1,ns),j,1,3)$
+
+Klist2:k*Hlist2^s$
+
+Plist2:map(Psol, Blist2, Hlist2)$
+
+Alist2:map(Asol, clist2, Plist2, Hlist2)$
+
+
+load(draw)$
+
+draw2d(
+file_name= "D-B-k-plot",
+terminal=eps,
+yrange=[0,1],
+xtics=1/10,
+/* xlabel="Dispersion index of reward (D)",
+ylabel="Reward (B)", */
+points_joined=true,
+point_type=0,
+color=black,
+key="k=10",
+line_width= 3,
+line_type= solid,
+points(Dlist,Blist1),
+key=" =100",
+line_width= 1,
+line_type= dashes,
+points(Dlist,Blist2)
+)$
+
+draw2d(
+file_name= "D-c-k-plot",
+terminal=eps,
+yrange=[0,.5],
+xtics=1/10,
+/* xlabel="Dispersion index of reward (D)",
+ylabel="Choosiness (c)", */
+points_joined=true,
+point_type=0,
+color=black,
+line_width= 3,
+line_type= solid,
+points(Dlist,clist1),
+line_width= 1,
+line_type= dashes,
+points(Dlist,clist2)
+)$
+
+draw2d(file_name= "D-K-k-plot",
+terminal=eps,
+point_type=0,
+points_joined=true,
+xtics=1/10,
+/* xlabel="Dispersion index of reward (D)",
+ylabel="Coefficient of choice (K)", */
+color= black,
+line_width= 3,
+line_type= solid,
+points(Dlist,Klist1),
+line_type= dashes,
+line_width= 1,
+points(Dlist,Klist2)
+)$
+
+draw2d(
+file_name= "D-P-k-plot",
+terminal=eps,
+point_type=0,
+points_joined=true,
+yrange=[0,1000],
+xtics=1/10,
+/* xlabel="Dispersion index of reward (D)",
+ylabel="Plant population (P)", */
+color=black,
+line_width= 3,
+line_type= solid,
+points(Dlist,Plist1),
+line_width= 1,
+line_type= dashes,
+points(Dlist,Plist2)
+)$
+
+draw2d(
+file_name= "D-A-k-plot",
+terminal=eps,
+point_type=0,
+points_joined=true,
+yrange=[0,1000],
+xtics=1/10,
+xlabel="Dispersion index of reward (D)",
+/* ylabel="Animal population (A)", */
+color=black,
+line_width= 3,
+line_type= solid,
+points(Dlist,Alist1),
+line_width= 1,
+line_type= dashes,
+points(Dlist,Alist2)
+)$
+

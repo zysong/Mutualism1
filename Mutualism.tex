@@ -1,0 +1,316 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{lineno}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{bm}
+\usepackage{natbib}
+\usepackage{appendix}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+\begin{document}
+\title{Phenotypic Variation, Population Dynamics and the Evolution of Plant-Animal Mutualism in Biological Markets}
+\author{Zhiyuan Song}
+\date{}
+\maketitle
+\setlength{\parskip}{.15in}
+
+\begin{abstract}
+
+heritability, pareto efficiency, 
+
+the animals are always the limiting side, so increasing the mortality of animals reduces the productivity of the whole market 
+
+\end{abstract}
+
+
+\section*{Introduction}
+
+Mutualsim evolves most readily between members of different kingdoms, which pool complementary abilities for mutual benefit \citep{LeighJr2010}. One prominent class of examples is the "brief-exchange" mutualism between animals and plants. Plants are the primary producers of various ecosystems and provide food and other resources for animals, but this interaction is by no means unidirectional as mobile animals often serve to disperse pollens or seeds for the immobile plants they visit and greatly facilitate the reproduction and the genetic diversity of plants. Nearly three-quarters of all extant flowering plants (angiosperms) receive pollination services from animals \citep{NationalResearchCouncil2007}, and animal pollination is considered the ancestral form of pollination in angiosperms \citep{Hu2008}. A large number of plant species rely on animal-mediated seed dispersal as seedling growths are inhibited near the parent plants \citep{Howe1982}, and removal of animal dispersers would greatly reduce seedling species richness \citep{Wang2002}.
+
+Resembling a market with buyers and sellers \citep{Noe.Hammerstein1994}, plants offer rewards to attract animals, and animals search around, choose among offers, and pay with delivery service. As Adam Smith (1776) remarked, the market-based mutualism does not result from the "benevolence of individuals", but "from their regard to their own interest". And Darwin (1859) eckoed, " . . . I do not believe that any animal in the world performs an action for the exclusive good of another of a distinct species, yet each species tries to take advantage of the instincts of others . . . " A free market is expected to be self-organized with evolving mutualism, but the efficiency of the "invisible hand" depends on a series of conditions, one of which is the availability of information. A perfect market with Pareto efficiency, where no one can be made better off without making at least one individual worse off, requires complete information so that all individuals could always make their best choices without any cost \citep{Arrow1954}. This assumption is, however, far from fulfilled in any economies, and it has been proved in economics that the lack of information to make optimal choice almost always leads to compromised efficiency \citep{Greenwald1986}. Similarly, animals in a biological market probably have very little information about the distribution of the plant rewards and have to spend time to search and compare offers, and this may hinder the evolution of mutualism. Accordingly, we need to address these ecological and evolutionary constraints to explain the diverse evolutionary fates of the plant-animal mutualism in a biological market.
+
+First, unlike natural selection directly driven by environment, the evolution of inter-specific mutualism in a biological market is a process of coevolution of two (or more) species, driven by each other. On the one hand, since rewards are often costly to produce, plants offering more generous rewards could evolve only if they receive more visits to be paid off. This requires animals to be sufficiently choosy to differentiate the available offers among plants. On the other hand, searching, sampling and comparing rewards costs time and energy for animals to be choosy when information is limited. Therefore, there must be sufficient variation among the offers to better reward choosy animals. These two conditions cause an apparent paradox if the heritability is high on the reward trait, because choosy animals select for higher rewards, purging variation among plants through time, which in turn favors less choosy animals. One remedy to resolve this paradox is to introduce high mutation or immigration rate of plants to counteract the selection by animals and maintain sufficient variations of the reward trait \citep{Foster.Kokko2006, McNamara.etal2008}. This assumption, however, is not often realistic as mutation rate in general is known to be much lower than required in those models as most mutations are deleterious, and the persistence of a large source plant population with low rewards but very high dispersibility to maintain the immigration is also questionable.
+
+However, heritability is often much lower in natural environment as phenotypes are mostly co-determined by genotypes and environment. Quantitative traits such as the quality of rewards, such as nectar concentration and fruit size, is well-known to be plastic and subject to the environment stochasticity and heterogeneity \citep{Sultan2000}. Therefore, even in a population with low variance on the reward genes, the phenotypic variance may be much greater. Since it is the phenotypic variation that immediately drives partner choice, it seems plausible that provided a correlation and some genetic variation, increased developmental variation will amplify the selection pressure on cooperation \citep{McNamara.Leimar2010}. The non-inheritable phenotype variation due to heterogeneous environment factors and phenotypic plasticity may plausibly contribute a greater component in driving the evolution of mutualism between plants and animals in the context of a biological market. To the best of our knowledge, no theoretical work so far has been done to address this issue.
+
+Second, an invisible hand is expected to function by simultaneously regulating both the quantity (ecological) and the quality (evolutionary) of transactions in a free market. Similarly, the value of rewards and the "price" of dispersal service depend on the ratio of demand and supply in plant-animal mutualism. When plants are relatively rare, animals have to compete for access to the plants, so that even the lowest offers may also be accepted; on the contrary, when plants are relatively abundant, they have to compete to attract animals' visits. This ecological feedback not only regulates demand and supply in the market, but changes the fitness and thus the selection pressure on both sides. If the two interacting populations share identical payoff functions and demographic characteristics, \textit{e.g.}, the same species, the feedback could in balance demand and supply in the market, and selects for fairness  \citep{Andre.Baumard2011}. However, in plant-animal interactions, the two sides often use different "currencies" and have very different demographic characteristics, and the balance may tip towards one side or the other. Mutualism in ecology is defined as a general concept, only requiring all participants benefit from the interaction, with no hints on the symmetry of the benefit exchange. Consequently, the equilibrium, if existing, is not easy to predict, but is determined by the interaction of the ecological and evolutionary dynamics. The fitness of a genotype not only changes with genotype frequency in a population through evolutionary dynamics but also depends on the plant-animal population ratio changing through ecological dynamics \citep{Holland.etal2004}. Therefore, generating predictions and testing them correctly requires considering this ecogenetic feedback loop \citep{Kokko.Lopez-Sepulcre2007}.
+
+Third, the relationship between conspecific unrelated individuals in a biological market is more complex than mere competition when population dynamics are taken into consideration. On the one hand, conspecific unrelated individuals directly compete for resources; on the other hand, they cooperatively maintain the population of the partner species as common good which benefits all conspecific individuals, irrespective of the relatedness, as the new generation widely spreads. This latter point is often neglected in evolutionary analyses using fixed-size population models, but makes important implications to understand the significant role of the evolution of mutualism in shaping ecosystems and building ecosystem services \citep{LeighJr2010}. The overall effect of the intra-specific competition and cooperation determines the efficiency of a biological market.
+
+In this study, we aim to highlight and analyze the three issues introduced above with a two-species (plant and animal) interaction model. We model the searching and choosing behavior of animals based on Foster and Kokko's (2006) behavior model, and incorporate the dynamic population ratio as a constraint on the efficiency of choice. Population densities of any genotypes in both populations are explicitly tracked so that the feedbacks between ecological dynamics and evolutionary dynamics could be simultaneously analyzed. In particular, we focused on the effect of non-heritable phenotypic variance on the evolution of mutualism as well as the ecological consequence. The evolutionary dynamics and ecological dynamics are first analytically studied, assuming rare mutations and relatively fast ecological dynamics. Then we use simulations to test the analytic prediction with a broader parameter sets. We found that the ecological feedback on selection plays as a "invisible hand", under some conditions, to improve the efficiency of a biological market.
+
+
+\section*{Models}
+
+Here we construct a model to describe the mutualistic interaction between a plant species and an animal species in a biological market, where the plants offer rewards to visiting animals, and animals provide dispersal service for the plants. This model applies to the common animal-mediated pollination or seed dispersal, and it is also likely to work with other types of mutualism between less mobile and more mobile partners, e.g., cleaner fish and their clients \citep{Bshary.Grutter2006}. 
+
+\subsection*{The behavior model}
+
+According to the optimal foraging theory \citep{MacArthur1966, Stephens1987}, organisms selectively forage to maximize their net energy intake per unit time. Assume that an animal spends a fraction $c$ ($0 \leq c \leq 1$) of its foraging time on searching and comparing the rewards offered by individual plants. With $c>0$, it tends to visit the plants offering higher rewards more often; it makes random visits otherwise. We use $B$ to designate the plant genotype that determines the average reward level, and $b$ the corresponding phenotype that animals perceive. The geno-phenotype distribution in plant population is $\beta(b,B)$. 
+
+Being consistent with the Foster and Kokko's (2006) model, we assume that the probability $q$ that an animal with choosiness $c$ visits a plant offering reward $b_\bullet$ is an increasing function of reward and choosiness. However, it is also constrained by the availability of choice, measured by the plant saturation ratio $R=(\tfrac{P}{P+ A})^s$. Thus we have:
+\begin{equation}
+q(b_\bullet,c)=\frac{\exp \left( K b_\bullet c \right)}{\iint \exp \left( K b c \right) \beta(b,B) \mathrm{d}b \mathrm{d}B},
+\label{eq:bias}
+\end{equation}
+where $K = k (2 R-1)$ is the coefficient of choice, and $k$ is determined by an animal's physical ability of detecting differences among the plants. If the animal-plant ratio ($A/P$) is high, animals have to compete against each other for limited options. Apparently, $q = 1$ if $H=1/2$.
+
+The average reward that an animal with choosiness $c$ collects per visit is thus
+\begin{equation}
+\bar{b}(c) = \iint b \, q(b, c) \, \beta(b,B) \, \mathrm{d} b\, \mathrm{d}B.
+\label{eq:chosen_reward}
+\end{equation}
+And the chance that a plant of genotype $B_\bullet$ is visited by animals is 
+\begin{equation}
+G(B_\bullet)= R \, q(b,c)\, \beta(b|B_\bullet)\, \gamma(c)\, \mathrm{d}b \, \mathrm{d}c \nonumber \\ 
+\label{eq:G}
+\end{equation}
+where $\gamma(c)$ is the distribution of choosiness in the animal population. Clearly, the opportunity increases with the animal population density, and it is saturated when all plants recruit enough visitors.
+
+\subsection*{The population model}
+
+For most cases, an animal is able to visit a number of plants, and a plant may receive multiple visits from animals as well as abiotic dispersal. Therefore, the reproduction rate of an animal is proportional to the total rewards that it collects, and that of a plant is proportional to the total dispersal (mediated by animals or by abiotic forces). This is different from many previous models that only took into account the mean level of these traits.
+
+The population dynamics for plants with reward $B_\bullet$ and animals with choosiness $c_\bullet$ are:
+\begin{subequations}
+\begin{align}
+\label{eq:PlantDensity}
+\dot{P}_\bullet &= \left[r_p G(B_\bullet)+r_s \right] P_\bullet - (q_p B^2_\bullet + m_p P) P_\bullet , \\
+\label{eq:AnimalDensity}
+\dot{A}_\bullet&=r_a R \bar{b}(c_\bullet) A_\bullet- (q_a c^2_\bullet + m_a A) A_\bullet  , 
+\end{align}
+\end{subequations}
+where $A=\sum{A_i}$ and $P=\sum{P_i}$ are the total population densities of animals and plants, respectively, and $r_p$, $r_s$ and $r_a$ are scaling coefficients of reproduction rates. 
+
+The fitness of one genotype is measured by the relative population density change between two generations, and the selection depends on its fitness:
+\begin{align*}
+u_{p\bullet} &= 1+ \dot{P}_\bullet / P_\bullet, \\
+u_{a\bullet} &= 1+ \dot{A}_\bullet / A_\bullet.
+\label{eq:fitness}
+\end{align*}
+Clearly, the relative fitness depends not only on the genotype frequencies but also the plant-animal population ratio.
+
+If the density of animals is constrained with a relatively much lower capacity such that most plants do not receive any animal visits, i.e., $R \approx 1$, the ecological dynamics could be neglected and the relative fitness of a mutant plant genotype is approximately:  
+\begin{equation*}
+u_{p\bullet}=1+ r_s - q_p B^2_\bullet - m_p P.
+\end{equation*}
+It is clear that any mutant genotype $B_\bullet>B_0$ cannot invade the resident population with the lowest reward trait $B_0$. This is not surprising because the contribution of animals is limited to be small relative to the cost of reward. In contrast, if the animal population density could fluctuate in a wide range as a response to the food resource availability, the relative fitness of a genotype may change significantly as a result of the population dynamics.
+
+\section*{Results}
+
+Assume the reward level of a plant is a random variable following a normal distribution $N(B, \sigma^2)$ with the mean value determined by the genotype. Empirical studies on plants indicate that the phenotypic variance is often correlated with the mean of the trait. Accordingly, here we assume that the variance is linearly correlated with the mean value, scaled by the index of dispersion ($D$) which is independent of the mean value, \textit{i.e.}, $\sigma^2=B D$. 
+
+\subsection*{The ecological equilibrium}
+
+In a community at an evolutionary equilibrium, consisting of plants of a single genotype $B$ and animals of a single genotype $c$, we can simplify equation \eqref{eq:bias} as
+\begin{align*}
+q(\tilde{b},c) &= \frac{\exp \left( K \tilde{b} c \right)}{\int \exp \left( K b c \right)  \beta(b, B) \mathrm{d}b} \\
+			   &= \exp[K c(\tilde{b}-B-K B c D/2)],
+\label{eq:qeqm}
+\end{align*}
+and derive from equation \eqref{eq:chosen_reward}
+\begin{equation*}
+\bar{b}(c)=B (1 + K c D).
+\label{eq:bbar}
+\end{equation*}
+
+We can further simplify the population dynamics from equation \eqref{eq:PlantDensity} and \eqref{eq:AnimalDensity} to
+\begin{subequations}
+\begin{align}
+\label{eq:totalPDensity}
+\dot{P}&=\left[r_p (1-R) + r_s \right]P - q_p B^2 P - m_p P^2 , \\
+\label{eq:totalADensity}
+\dot{A}&=r_a R B (1+K c D) A - q_a c^2 A- m_a A^2.
+\end{align}
+\label{eq:EcoDynamics}
+\end{subequations}
+
+At an ecological equilibrium, the population densities of plants and animals do not change, i.e., $\dot{P}=0$ and $\dot{A}=0$. $(\hat{P},\hat{A})$ is the only stable equilibrium, where $\hat{P}>0$ and $\hat{A}>0$, can be found by solving $\dot{P}/P=0$ and $\dot{A}/A=0$. Therefore, $H$ could be derived as a function of $B$ and $c$ at the ecological equilibrium.
+
+The stability of an equilibrium can be verified by computing the Jacobian matrix
+\begin{equation*}
+J =\begin{pmatrix}
+	\frac{\partial \dot{A}}{\partial A} & \frac{\partial \dot{A}}{\partial P} \\
+	\frac{\partial \dot{P}}{\partial A} & \frac{\partial \dot{P}}{\partial P}
+   \end{pmatrix}
+\end{equation*}
+at the equilibrium. The sufficient conditions for stability are $\left|J\right|>0$ and $Tr(J)<0$. The details of the algebra are shown in Appendix A.
+
+
+\subsection*{The evolutionary equilibrium}
+
+We assume that the plant reward and animal choosiness are both quantitative traits with low mutation rate and weak mutation effect, so that the difference between the mean trait of any mutant genotype and that of the resident genotype is vanishingly small. Thus, for mutant genotypes $B'$ and $c'$ introduced into population of resident genotypes $B$ and $c$, respectively, $G(B')$ is derived from Eqn \eqref{eq:G}:
+\begin{subequations}
+\begin{align*}
+G(B') &\approx (1-R) \int q(b,\bar{c}) \beta(b|B_\bullet) \mathrm{d}b \\
+	  &= (1-R) e^{K c(1 + K c D/2)(B'-B)}.
+\end{align*}
+\end{subequations}
+And the selection gradients for the mutants are 
+\begin{subequations}
+\begin{align}
+\label{eq:Bgrad2}
+\left.\frac{\mathrm{d} u'_p}{\mathrm{d} B'} \right|_{B' = B} &= r_p(1-R) K c(1+K c D/2) -2 q_p B , \\
+\label{eq:cgrad2}
+\left.\frac{\mathrm{d} u'_a}{\mathrm{d} c'}\right|_{c'=c} &= r_a R K D B -2 q_a c.
+\end{align}
+\end{subequations}
+
+An evolutionarily stable equilibrium is reached when the fitnesses are maximized so that no mutants are able to invade. Note that $H$ is a function of $B$ and $c$ at an ecological equilibrium, deduced from \eqref{eq:EcoDynamics}. Assume that plants have a minimum mean reward trait $B_0>0$, which is a byproduct of necessary pollen or fruits production. Depending the values of $D$ and $k$, the system converges to one of the three possible equilibria, $(B^*, c^*)$, $(B_0, c^*)$ and $(B_0, 0)$. First, the system converges to an interior equilibrium if $B^*>B_0$ and $c^*>0$ exist as the solution of $\left.\frac{\mathrm{d} u'_p}{\mathrm{d} B'} \right|_{B' = B}=0$ and $\left.\frac{\mathrm{d} u'_a}{\mathrm{d} c'}\right|_{c'=c}=0$, with the additional condition $0 \leq H \leq 1$ (Fig. \ref{fig:VectorField1}). If the solution $(B^*, c^*)$ does no exist, $B = B_0$ must be stable. Then we solve $\left.\frac{\mathrm{d} u'_a}{\mathrm{d} c'}\right|_{c'=c}=0$ to get $c^*$. If $0<c^*<1$ does not exist, the equilibrium $(B_0, 0)$ is globally stable (Fig. \ref{fig:VectorField2}).
+
+The stability of the interior equilibrium $(B^*, c^*)$ can be tested by the following steps: First, it is easy to deduce the second-order derivatives $\left.\frac{\mathrm{d}^2 u'_p}{\mathrm{d} {B'}^2}\right|_{B'=B} <0$, and $\frac{\mathrm{d}^2 u'_a}{\mathrm{d} {c'}^2} <0$ for any $c'$. This means if there is a singular point $(B^*, c^*)$, it is a local fitness maximum. Second, because $B'=B^*$ is the only solution of $\mathrm{d} u'_p(B^*, c^*) / \mathrm{d} {B'} = 0$ in the space $(0,1)$, and $u'_p(B^*, c^*)$ is a continuous function of $B'$, the equilibrium is globally evolutionarily stable. 
+
+Then the population densities at the eco-evolutionary equilibrium can be derived from Equation \eqref{eq:totalPDensity}:
+\begin{subequations}
+\begin{align}
+P^* &=(1-B^*) \left[r_p (1-H^*) + r_s \right]/m_p ,\\
+A^* &=\frac{(1-H^*) P^*}{H^* (1-c^*)}.
+\end{align}
+\end{subequations}
+
+If $D$ is lower than a threshold, there is little variance to be chosen when the mean reward trait, $B$, is low. Consequently, no choosiness evolves, and the reward trait remains at the bottom level. As $D$ increases slightly beyond the threshold, choosiness starts to take off, but higher reward does evolve until animals are sufficiently choosy. It is clear that $B^*$ and $c^*$ are both increasing functions of $D$ (Fig. \ref{fig:D-Bc-plot}). This result is consistent with our intuition that greater variance of rewards encourages higher choosiness, which further favors higher rewards. This positive feedback, however, slows down as $D$ increases, due to the density-dependent mortality and the decreasing $H$ (Fig. \ref{fig:D-H-plot}) which reduces the efficiency of choosiness.
+
+The effect of reward variance on population densities at the equilibrium reflects the efficiency of the market. When $D$ is too low for mutualism to evolve, animal-mediated dispersal is limited and plants also rely on abiotic dispersal though the latter is inefficient as $r_s<<r_p$. Both the plant and animal population densities increase when mutualism evolves with $D$ (Fig. \ref{fig:D-PA-plot}). The plant population grows more with a low-level mutualism when $D$ is limited. This is because the plant functional response on the animal population density is stronger. The marginal effect of reward variance diminishes as $D$ increases, due to the density-dependent mortality. Consequently, the plant population reaches a plateau first, and the animal population later. Interestingly, growing choosiness of animals does not cause overcompetition among plants, and again, this is because the efficiency of growing choosiness is canceled by the decreasing $H$. Since both the plant and animal population densities are non-decreasing functions of $D$, the efficiency of the biological market is increasing function of $D$ overall.
+
+An evolutionarily stable equilibrium, however, does not often leads to Pareto efficiency. The supply ratio $H$ also reflects the efficiency of the market from another aspect. $H=1/2$ indicates a balance of supply and demand, and a greater $H$ indicates an oversupply. A fully efficient market optimizes the allocation of resources to balance the supply and demand. The result of our model shows that the plant relative density $H$ at the equilibrium drops from a high value as $D$ increases, but it is always greater than $1/2$ (Fig. \ref{fig:D-H-plot}). This indicates that, on the one hand, a greater reward variance improves the efficiency of the market; on the other hand, the market is not Pareto efficient as the oversupply persists, and both the plant and animal populations could increase if the plants offer higher reward. Furthermore, the effort spent in choosiness also prevent the market from being fully efficient.
+
+\subsection*{Simulations}
+
+In our simulation tests, we kept the mutation rate and size relatively low so that the genetic variance is a minor component of the phenotypic variance, but it is sufficiently high for the concurrence of multiple mutants (Fig. \ref{fig:Sim_B} and \ref{fig:Sim_c}). The range of reward is set to be between $0.05$ and $1$, and the range of choosiness is set between $0$ and $1$. The initial reward and choosiness genotypes are $0.05$ and $0$, respectively. Mutations are assumed to be discrete and each mutation changes the genotype by $0.01$. Truncated normal distributions are used to produce the phenotypes of any given genotype of plants. Instead of assuming an ecological equilibrium at any moment when studying the evolutionary dynamics, we allow the two dynamics to concur and interact with each other simultaneously (Fig. \ref{fig:Sim_mean}). 
+
+Given a sufficiently large $D$, a nonzero baseline reward from plants first stimulates the evolution of choosiness among animals, and once choosiness is sufficiently high, higher reward genotypes start to evolve. The equilibrium of the mutualism fits well our analytical prediction (Fig. \ref{fig:Sim_B} and \ref{fig:Sim_c}). The plant relative density decreases as mutualism evolves (Fig. \ref{fig:Sim_H}), indicating the evolution of mutualism improves the balance of supply and demand in the market. In general, the population densities of both species increase as mutualistic traits evolve (Fig. \ref{fig:Sim_mean}), and this trend indicates of the evolution of mutualism benefits both species, in spite of the intra-specific competitions.
+
+We also tested the model with mutuation rates as high as $0.01$, and the results remain consistent, suggesting that we can generalize the result with a broad range of mutation rates.
+
+\section*{Discussion}
+
+
+
+The effect of coefficient of choice, $K$, on the evolution of interaction traits is clear: With a greater $K$, the animals can choose more efficiently so that choosiness could evolve with a lower $D$ and stimulate the evolution of mutualism (Fig. \ref{fig:D-Bc-plot}). In other words, a greater $K$ amplifies the effect of $D$, causes all these curves to shift to the left, corresponding to a lower $D$. The parameter $k$ depends on the animal's physical ability of detecting differences and the spatial correlation of plant phenotypes, both of which are considered to be constants in our model. In contrast, the plant relative density, $H$, which similarly regulates the efficiency of choice, is sensitive to ecological and evolutionary dynamics. The result shows that $H$ is a decreasing function of $D$ (Fig. \ref{fig:D-H-plot}). As a result, if $D$ is low, the ecological feedback of a high $H$ allows choosiness to evolve with the presence of relatively lower variance of rewards. On the other hand, if $D$ is high, the ecological feedback of a low $H$ makes animals' choice less efficient, and reduces the competition between plants at the equilibrium, preventing overcompetition. In this way, the ecological feedback, like an "invisible hand", improves the efficiency of the biological market, but the effect is limited and insufficient to fully compensate the information gap. 
+
+The previous model studies on the evolution of mutualism in the context of a biological market with partner choice either focused on one-to-one interactions \citep{Andre.Baumard2011}, or one-to-many interactions \cite{Foster.Kokko2006}. 
+
+
+Variance is crucial to many mechanisms that lead to the evolution of cooperative behaviour. In particular, in many social situations, the variance in a behavioural trait is important in determining how the mean value of the trait will evolve.
+
+The variation in a behavioural trait is likely to be due to both genetic variation and variation that is environmentally induced. However, it is the phenotypic variation that is the immediate driving force acting on behaviour. It seems plausible that provided there is a correlation and some genetic variation, increased developmental variation will amplify the selection pressure on cooperation, although this topic needs further analysis. Of course selection will eventually tend to reduce genetic variation. This force will be opposed by processes such as mutation and recombination. As long as sufficient phenotypic variation is maintained at the balance of these forces, and this variation has some sufficient genetic component, cooperation can emerge and be maintained \citep{McNamara.Leimar2010}. 
+
+
+\bibliographystyle{plainnat}
+\bibliography{bib_mutualism}
+
+\clearpage
+\begin{table*}
+		\centering
+		\caption{Variables and parameters}
+		\begin{tabular}[htb]{lll} \hline
+		Symbols	& Description & Default/initial value \\ \hline
+		$A$			& Animal population density & \\
+		$P$			& Plant population density & \\
+		$B$			& Reward genotype of a plant & 0.01 \\
+		$b$			& Reward phenotype of a plant & \\
+		$c$			& Choosiness of an animal & 0\\
+		$D$			& Dispersion index ($=\sigma^2/B$) & \\
+		$\beta$		& Distribution density of phenotype $b$ in plants &\\
+		$\gamma$	& Distribution density of phenotype $c$ in animals &\\
+		$H$			& Plant relative density &\\
+		$k$			& Discrimination efficiency& 20\\
+		$m_a$, $m_p$& Mortality coefficients of animals and plants & 0.0001\\		
+		$r_a$		& Fertility coefficient of animals & 1\\
+		$r_p$, $r_s$& Fertility coefficients with and without animal-mediated dispersal & 1, 0.01 \\
+		$\sigma$	& Standard variation of reward phenotype &\\
+		$u_a, u_p$	& Fitness &\\
+		$\mu$		& mutation rate &\\
+		
+		\hline
+		\end{tabular}
+		\label{tab:VariablesAndParameters}
+\end{table*}
+
+
+\clearpage
+\appendix
+\appendixpage
+
+\section{Ecological stability (not updated yet)}
+\setcounter{equation}{0}
+\numberwithin{equation}{section}
+
+If $m_a<r_a(1-c)(B+k c \sigma^2)$, the non-zero equilibrium $(P^*, A^*)$ exists. We first derive the following results from equations \eqref{eq:totalPDensity} and \eqref{eq:totalADensity}
+\begin{align}
+\left.\partial H/\partial A \right|_{\substack{P=P^*\\ A=A^*}}&= -\frac{h (1-c) P^*}{[P^*+h(1-c)A^*]^2}<0, \nonumber \\
+\left.\partial H/\partial P \right|_{\substack{P=P^*\\ A=A^*}}&= \frac{h (1-c) A^*}{[P^*+h (1-c) A^*]^2}>0 . \nonumber
+\end{align}
+
+With $r_s<r_p$, we have
+\begin{subequations}
+\begin{align}
+\label{eq:J11}
+\frac{\partial (\dot{A}/A)}{\partial A} &= r_a (1-c) (B+2 k \sigma^2 H c) \partial H/\partial A < 0, \\
+\label{eq:J12}
+\frac{\partial (\dot{A}/A)}{\partial P} &= r_a (1-c) (B+2 k \sigma^2 H c) \partial H/\partial P > 0, \\ 
+\label{eq:J21}
+\frac{\partial (\dot{P}/P)}{\partial A} &= (r_s-r_p)(1-B)\partial H/\partial A  >0, \\
+\label{eq:J22}
+\frac{\partial (\dot{P}/P)}{\partial P} &= (r_s-r_p)(1-B)\partial H/\partial P -m_p <0 .
+\end{align}
+\end{subequations}
+
+Then we can we use these results to derive the signs of the entries of the Jacobian matrix, 
+\begin{equation}
+\left.\frac{\partial (\dot{A})}{\partial A}\right|_{\substack{P=P^*\\ A=A^*}} = A^* \left.\frac{\partial (\dot{A}/A)}{\partial A}\right|_{\substack{A=A^*\\ P=P^*}} + \dot{A}^*/A^* = A^* \left.\frac{\partial (\dot{A}/A)}{\partial A}\right|_{\substack{A=A^*\\ P=P^*}} < 0
+\end{equation}
+In the same way, it is easy to get $\left.\frac{\partial (\dot{A})}{\partial P}\right|_{\substack{A=A^*\\ P=P^*}} >0$, 
+$\left.\frac{\partial (\dot{P})}{\partial A}\right|_{\substack{A=A^*\\ P=P^*}} >0$, and $\left.\frac{\partial (\dot{P})}{\partial P}\right|_{\substack{A=A^*\\ P=P^*}} <0$. As a result, the sufficient conditions for stability hold, as $T(J)<0$ and $|J|=-m_p A^* \frac{\partial (\dot{A}/A)}{\partial A} >0$. 
+
+Similarly, if $m_a>r_a(1-c)(B+k c \sigma^2)$, for the equilibrium $(m_a/r_a,0)$,
+\begin{align}
+\left.\partial H/\partial A \right|_{\substack{P=m_a/r_a\\ A=0}}&= -h (1-c)<0, \nonumber \\
+\left.\partial H/\partial P \right|_{\substack{P=m_a/r_a\\ A=0}}&= 0 . \nonumber
+\end{align}
+
+\begin{subequations}
+\begin{align}
+\left.\frac{\partial (\dot{A})}{\partial A}\right|_{\substack{P=m_a/r_a\\ A=0}} &= r_a(1-c)(B+k c \sigma^2) -m_a < 0,\\ 
+\left.\frac{\partial (\dot{A})}{\partial P}\right|_{\substack{P=m_a/r_a\\ A=0}} &= 0, \\
+\left.\frac{\partial (\dot{P})}{\partial A}\right|_{\substack{P=m_a/r_a\\ A=0}} &= \left. P \frac{\partial(\dot{P}/P)}{\partial A}\right|_{\substack{P=m_a/r_a\\ A=0}}>0, \\	
+\left.\frac{\partial (\dot{P})}{\partial P}\right|_{\substack{P=m_a/r_a\\ A=0}} &= -m_p < 0.																		
+\end{align}
+\end{subequations}
+As a result, the sufficient conditions for stability hold, as $T(J)<0$ and $|J|>0$.
+
+\clearpage
+\begin{figure}
+\centering
+	\subfloat[]{\label{fig:VectorField1} \includegraphics[width=0.5\textwidth]{VectorField1.eps}}
+	\subfloat[]{\label{fig:VectorField2} \includegraphics[width=0.5\textwidth]{VectorField2.eps}}
+	\caption{The vector field of selection gradients and the evolutionary trajectories. (a) The system converges to a boundary solution, given $D=0.05$ (b) The system converges to an interior equilibrium, given $D=0.5$.}
+	\label{fig:VectorField}
+\end{figure}
+
+\clearpage
+\begin{figure}
+	\centering
+	\subfloat[]{\label{fig:D-Bc-plot} \includegraphics[width=0.5\textwidth]{D-Bc-plot.eps}}
+	\subfloat[]{\label{fig:D-PA-plot} \includegraphics[width=0.5\textwidth]{D-PA-plot.eps}} \\
+	\subfloat[]{\label{fig:D-H-plot} \includegraphics[width=0.5\textwidth]{D-H-plot.eps}}
+	\caption{The analytic predictions of evolutionary equilibrium and ecological equilibrium, for the given dispersion index of the plant reward trait. (a) The mean reward and choosiness; (b) plant and animal population densities; (c) plant relative abundance, which regulates efficiency of choice.}
+	\label{fig:D-Eqm}
+\end{figure}
+
+\clearpage
+\begin{figure}
+\subfloat[]{\label{fig:Sim_B} \includegraphics[width=0.5\textwidth]{SimBplot.eps}}
+\subfloat[]{\label{fig:Sim_c} \includegraphics[width=0.5\textwidth]{Simcplot.eps}}\\
+\subfloat[]{\label{fig:Sim_H} \includegraphics[width=0.5\textwidth]{SimHplot.eps}}
+\subfloat[]{\label{fig:Sim_mean} \includegraphics[width=0.5\textwidth]{PA-Bcplot.eps}}
+\label{fig:Simulation}
+\caption{The result of a simulation run. The darkness of dots reflects the corresponding genotype frequencies in (a) plants and (b) animals. (c) In general, the population densities of both species increase as mutualistic traits evolve.}
+\end{figure}
+
+\end{document}

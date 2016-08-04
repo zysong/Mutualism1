@@ -1,0 +1,104 @@
+/* Maxima batch file */
+kill(all)$
+
+ratprint:false$
+
+K:k*H^s$
+
+Heq:ra*(1-c)^2*H^2*(B+K*c*B*D)*mp-ma*(1-H)*(1-B)*(rp*(1-H)+rs)$
+
+dupdB:-rs+rp*(1-H)*(K*c*(1+K*c*D/2)*(1-B)-1)$
+
+duadc:ra*H*B*(K*D*(1-2*c)-1)$
+
+Psol(B,H):=(1-B)*(rp*(1-H)+rs)/mp$
+
+Asol(c,P,H):=(1/H-1)*P/(1-c)$
+
+HofBc(x,y):=find_root(ev(Heq, B=x, c=y),H,0,1)$
+
+/* the initial parameters*/
+rp:1$
+rs:0.01$
+ra:1$
+ma:.0005$
+mp:.0005$
+k:20$
+s:2$
+ns:25$
+B0:.01$
+Dlist:makelist(i/50+0.005, i, 1, ns)$
+
+SolveEqm(D):=block(
+  Eqm1:sort(solve([Heq, dupdB, duadc],[B,c,H]))[4],
+  Eqm1:ev([B,c,H],Eqm1),
+  Eqm2:sort(solve(ev([Heq, duadc],B=B0),[c,H]))[1],
+  Eqm2:ev([B,c,H],Eqm2,B=B0),
+  Eqm3:[B0, 0, HofBc(B0,0)],
+  
+  if (Eqm1[1]>B0 and Eqm1[1]<1 and Eqm1[2]>0 and Eqm1[2]<1 and Eqm1[3]>0 and Eqm1[3]<1) then (Eqm:Eqm1)
+  elseif (Eqm2[1]>0 and Eqm2[1]<1 and Eqm2[2]>0 and Eqm2[2]<1) then (Eqm:Eqm2)
+  else (Eqm:Eqm3),
+  
+  return(Eqm)
+  )$
+
+eqlist1:map(SolveEqm, Dlist)$
+
+[Blist1, clist1, Hlist1]: makelist(makelist(eqlist1[i][j],i,1,ns),j,1,3)$
+
+Plist1:map(Psol, Blist1, Hlist1)$
+
+Alist1:map(Asol, clist1, Plist1, Hlist1)$
+
+
+load(draw)$
+
+draw2d(
+file_name= "D-Bc-plot2",
+terminal=eps,
+yrange=[0,1],
+xtics=1/10,
+xlabel="Dispersal of Variance",
+ylabel="Reward / choosiness",
+points_joined=true,
+point_type=0,
+color=black,
+key="reward",
+line_type= solid,
+points(Dlist,Blist1),
+key="choosiness",
+line_type= dots,
+points(Dlist,clist1)
+)$
+
+draw2d(file_name= "D-H-plot2",
+terminal=eps,
+point_type=0,
+points_joined=true,
+yrange=[0,1],
+xtics=1/10,
+xlabel="Dispersal of Variance",
+ylabel="Plant relative abundance",
+color= black,
+points(Dlist,Hlist1)
+)$
+
+draw2d(
+file_name= "D-PA-plot2",
+terminal=eps,
+point_type=0,
+points_joined=true,
+yrange=[0,1000],
+xtics=1/10,
+xlabel="Dispersal of Variance",
+ylabel="Plant / animal population",
+key="Plant",
+color=black,
+line_type= solid,
+points(Dlist,Plist1),
+key="Animal",
+line_type= dots,
+points(Dlist,Alist1)
+)$
+
